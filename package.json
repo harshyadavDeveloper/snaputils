@@ -1,0 +1,36 @@
+{
+  "name": "snaputils",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A lightweight utility library for string, number, and date formatting",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "keywords": [
+    "utils",
+    "helpers",
+    "formatters",
+    "date",
+    "string",
+    "number"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^29.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "rollup": "^4.60.2"
+  }
+}

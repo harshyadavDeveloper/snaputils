@@ -1,0 +1,39 @@
+# dependencies
+node_modules/
+
+# logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# build output
+dist/
+build/
+.next/
+out/
+
+# coverage
+coverage/
+
+# environment variables
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# editor directories and files
+.vscode/
+.idea/
+*.swp
