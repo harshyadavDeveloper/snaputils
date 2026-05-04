@@ -4,6 +4,10 @@ export {
   truncate,
   toCamelCase,
   maskString,
+  toTitleCase,
+  isPalindrome,
+  countOccurrences,
+  reverseString,
 } from "./string.js";
 
 // Number & currency utilities

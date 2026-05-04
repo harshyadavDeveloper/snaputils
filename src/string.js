@@ -24,9 +24,50 @@ export function toCamelCase(str) {
 
 // Masks middle characters of a string
 // maskString("1234567890", 2, 2) → "12******90"
-export function maskString(str, visibleStart = 2, visibleEnd = 2, maskChar = "*") {
+export function maskString(
+  str,
+  visibleStart = 2,
+  visibleEnd = 2,
+  maskChar = "*",
+) {
   if (!str || typeof str !== "string") return "";
   if (str.length <= visibleStart + visibleEnd) return str;
   const masked = maskChar.repeat(str.length - visibleStart - visibleEnd);
-  return str.slice(0, visibleStart) + masked + str.slice(str.length - visibleEnd);
+  return (
+    str.slice(0, visibleStart) + masked + str.slice(str.length - visibleEnd)
+  );
+}
+
+// Converts string to Title Case
+// toTitleCase("hello world") → "Hello World"
+export function toTitleCase(str) {
+  if (!str || typeof str !== "string") return "";
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+// Checks if a string is a palindrome
+// isPalindrome("racecar") → true
+// isPalindrome("hello") → false
+export function isPalindrome(str) {
+  if (!str || typeof str !== "string") return false;
+  const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+  return cleaned === cleaned.split("").reverse().join("");
+}
+
+// Counts occurrences of a substring in a string
+// countOccurrences("hello world hello", "hello") → 2
+export function countOccurrences(str, substr) {
+  if (!str || !substr) return 0;
+  return str.split(substr).length - 1;
+}
+
+// Reverses a string
+// reverseString("hello") → "olleh"
+export function reverseString(str) {
+  if (!str || typeof str !== "string") return "";
+  return str.split("").reverse().join("");
 }
