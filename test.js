@@ -65,9 +65,9 @@ console.log(formatShortDate("2024-01-15")); // 01/15/2024
 console.log(timeAgo(new Date(Date.now() - 3600000))); // 1 hour ago
 console.log(daysBetween("2024-01-01", "2024-01-11")); // 10
 console.log(addDays("2024-01-01", 5)); // 2024-01-06
-console.log(isWeekend("2024-01-13"));   // true (Saturday)
-console.log(isWeekend("2024-01-15"));   // false (Monday)
-console.log(isLeapYear(2024));          // true
-console.log(isLeapYear(2023));          // false
-console.log(getDayName("2024-01-15"));  // Monday
+console.log(isWeekend("2024-01-13")); // true (Saturday)
+console.log(isWeekend("2024-01-15")); // false (Monday)
+console.log(isLeapYear(2024)); // true
+console.log(isLeapYear(2023)); // false
+console.log(getDayName("2024-01-15")); // Monday
 console.log(getMonthName("2024-01-15")); // January
