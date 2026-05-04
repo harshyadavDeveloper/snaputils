@@ -8,12 +8,18 @@ import {
   countOccurrences,
   reverseString,
 } from "./src/string.js";
+
 import {
   formatCurrency,
   formatPercent,
   abbreviateNumber,
   roundTo,
+  isEven,
+  isOdd,
+  randomBetween,
+  formatFileSize,
 } from "./src/number.js";
+
 import {
   formatDate,
   formatShortDate,
@@ -41,6 +47,12 @@ console.log(formatCurrency(1999.99, "INR", "en-IN")); // ₹1,999.99
 console.log(formatPercent(0.856, 2)); // 85.60%
 console.log(abbreviateNumber(2_500_000)); // 2.5M
 console.log(roundTo(3.14159, 2)); // 3.14
+console.log(isEven(4));                  // true
+console.log(isOdd(3));                   // true
+console.log(randomBetween(1, 10));       // random number between 1-10
+console.log(formatFileSize(1024));       // 1.00 KB
+console.log(formatFileSize(1048576));    // 1.00 MB
+console.log(formatFileSize(1073741824)); // 1.00 GB
 
 // --- Date ---
 console.log("=== Date ===");

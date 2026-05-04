@@ -30,7 +30,8 @@ export function abbreviateNumber(num, decimals = 1) {
   if (isNaN(num)) return "";
   const abs = Math.abs(num);
   const sign = num < 0 ? "-" : "";
-  if (abs >= 1_000_000_000) return `${sign}${(abs / 1_000_000_000).toFixed(decimals)}B`;
+  if (abs >= 1_000_000_000)
+    return `${sign}${(abs / 1_000_000_000).toFixed(decimals)}B`;
   if (abs >= 1_000_000) return `${sign}${(abs / 1_000_000).toFixed(decimals)}M`;
   if (abs >= 1_000) return `${sign}${(abs / 1_000).toFixed(decimals)}K`;
   return `${sign}${abs}`;
@@ -41,4 +42,33 @@ export function abbreviateNumber(num, decimals = 1) {
 export function roundTo(num, decimals = 2) {
   if (isNaN(num)) return NaN;
   return Math.round(num * 10 ** decimals) / 10 ** decimals;
+}
+
+// Checks if a number is even
+// isEven(4) → true
+export function isEven(num) {
+  return num % 2 === 0;
+}
+
+// Checks if a number is odd
+// isOdd(3) → true
+export function isOdd(num) {
+  return num % 2 !== 0;
+}
+
+// Returns a random number between min and max (inclusive)
+// randomBetween(1, 10) → 7
+export function randomBetween(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Formats bytes into human readable file size
+// formatFileSize(1024) → "1.00 KB"
+// formatFileSize(1048576) → "1.00 MB"
+export function formatFileSize(bytes) {
+  if (isNaN(bytes) || bytes < 0) return "";
+  if (bytes === 0) return "0 Bytes";
+  const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
+  const i = Math.floor(Math.log(bytes) / Math.log(1024));
+  return `${(bytes / Math.pow(1024, i)).toFixed(2)} ${sizes[i]}`;
 }

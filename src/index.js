@@ -17,6 +17,10 @@ export {
   formatPercent,
   abbreviateNumber,
   roundTo,
+  isEven,
+  isOdd,
+  randomBetween,
+  formatFileSize,
 } from "./number.js";
 
 // Date & time utilities
