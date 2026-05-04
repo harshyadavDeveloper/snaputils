@@ -1,6 +1,10 @@
 // Formats a date to a readable string
 // formatDate("2024-01-15") → "January 15, 2024"
-export function formatDate(date, locale = "en-US", options = { year: "numeric", month: "long", day: "numeric" }) {
+export function formatDate(
+  date,
+  locale = "en-US",
+  options = { year: "numeric", month: "long", day: "numeric" },
+) {
   const d = new Date(date);
   if (isNaN(d)) return "Invalid date";
   return new Intl.DateTimeFormat(locale, options).format(d);
@@ -56,4 +60,34 @@ export function addDays(date, days) {
   const d = new Date(date);
   d.setDate(d.getDate() + days);
   return d;
+}
+
+// Checks if a date falls on a weekend
+// isWeekend("2024-01-13") → true (Saturday)
+export function isWeekend(date) {
+  const d = new Date(date);
+  if (isNaN(d)) return false;
+  return d.getDay() === 0 || d.getDay() === 6;
+}
+
+// Checks if a year is a leap year
+// isLeapYear(2024) → true
+export function isLeapYear(year) {
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
+
+// Returns the name of the day
+// getDayName("2024-01-15") → "Monday"
+export function getDayName(date, locale = "en-US") {
+  const d = new Date(date);
+  if (isNaN(d)) return "Invalid date";
+  return d.toLocaleDateString(locale, { weekday: "long" });
+}
+
+// Returns the name of the month
+// getMonthName("2024-01-15") → "January"
+export function getMonthName(date, locale = "en-US") {
+  const d = new Date(date);
+  if (isNaN(d)) return "Invalid date";
+  return d.toLocaleDateString(locale, { month: "long" });
 }

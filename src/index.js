@@ -30,4 +30,8 @@ export {
   timeAgo,
   daysBetween,
   addDays,
+  isWeekend,
+  isLeapYear,
+  getDayName,
+  getMonthName,
 } from "./date.js";
