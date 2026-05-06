@@ -32,6 +32,8 @@ import {
   getMonthName,
 } from "./src/date.js";
 
+import { isEmail, isURL, isPhoneNumber } from "./src/validation.js";
+
 // --- String ---
 console.log("=== String ===");
 console.log(capitalize("hello world")); // Hello world
@@ -71,3 +73,13 @@ console.log(isLeapYear(2024)); // true
 console.log(isLeapYear(2023)); // false
 console.log(getDayName("2024-01-15")); // Monday
 console.log(getMonthName("2024-01-15")); // January
+
+// --- Validation ---
+console.log("=== Validation ===");
+console.log(isEmail("test@gmail.com")); // true
+console.log(isEmail("notanemail")); // false
+console.log(isEmail("missing@domain")); // false
+console.log(isURL("https://google.com")); // true
+console.log(isURL("notaurl")); // false
+console.log(isPhoneNumber("+1234567890")); // true
+console.log(isPhoneNumber("123")); // false

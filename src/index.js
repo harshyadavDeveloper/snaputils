@@ -37,3 +37,10 @@ export {
   getDayName,
   getMonthName,
 } from "./date.js";
+
+// Validation utilities
+export {
+  isEmail,
+  isURL,
+  isPhoneNumber,
+} from "./validation.js";
