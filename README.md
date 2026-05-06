@@ -87,6 +87,40 @@ import { capitalize, formatCurrency, timeAgo } from "@dungeonmaster/snaputils";
 | `getDayName(date)`      | Get day name             | `"Monday"`           |
 | `getMonthName(date)`    | Get month name           | `"January"`          |
 
+## ✅ Validation Utilities
+
+| Function             | Description           | Example                         |
+| -------------------- | --------------------- | ------------------------------- |
+| `isEmail(str)`       | Validate email format | `"test@gmail.com"` → `true`     |
+| `isURL(str)`         | Validate URL format   | `"https://google.com"` → `true` |
+| `isPhoneNumber(str)` | Validate phone number | `"+1234567890"` → `true`        |
+
+## 🔢 Array Utilities
+
+| Function            | Description          | Example                             |
+| ------------------- | -------------------- | ----------------------------------- |
+| `unique(arr)`       | Remove duplicates    | `[1,2,2,3]` → `[1,2,3]`             |
+| `groupBy(arr, key)` | Group objects by key | `{fruit: [...], veggie: [...]}`     |
+| `chunk(arr, size)`  | Split into chunks    | `[1,2,3,4,5]` → `[[1,2],[3,4],[5]]` |
+
+## 🔧 Object Utilities
+
+| Function          | Description             | Example                |
+| ----------------- | ----------------------- | ---------------------- |
+| `omit(obj, keys)` | Remove keys from object | `{a:1, b:2}` → `{a:1}` |
+| `pick(obj, keys)` | Pick keys from object   | `{a:1, b:2}` → `{b:2}` |
+| `deepClone(obj)`  | Deep clone an object    | Returns new reference  |
+
+## 🎨 Color Utilities
+
+| Function                     | Description        | Example                             |
+| ---------------------------- | ------------------ | ----------------------------------- |
+| `hexToRgb(hex)`              | Hex to RGB object  | `"#ff5733"` → `{r:255, g:87, b:51}` |
+| `rgbToHex(r,g,b)`            | RGB to hex string  | `255,87,51` → `"#ff5733"`           |
+| `isValidHex(hex)`            | Validate hex color | `"#ff5733"` → `true`                |
+| `lightenColor(hex, percent)` | Lighten a color    | `"#ff5733", 20` → lighter hex       |
+| `darkenColor(hex, percent)`  | Darken a color     | `"#ff5733", 20` → darker hex        |
+
 ## License
 
 MIT
