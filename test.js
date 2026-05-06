@@ -38,6 +38,14 @@ import { unique, groupBy, chunk } from "./src/array.js";
 
 import { omit, pick, deepClone } from "./src/object.js";
 
+import {
+  hexToRgb,
+  rgbToHex,
+  isValidHex,
+  lightenColor,
+  darkenColor,
+} from "./src/color.js";
+
 // --- String ---
 console.log("=== String ===");
 console.log(capitalize("hello world")); // Hello world
@@ -120,3 +128,16 @@ const cloned = deepClone(original);
 cloned.b.c = 99;
 console.log(original.b.c); // 2 (unchanged!)
 console.log(cloned.b.c);
+
+// --- Color ---
+console.log("=== Color ===");
+console.log(hexToRgb("#ff5733")); // { r: 255, g: 87, b: 51 }
+console.log(hexToRgb("#ffffff")); // { r: 255, g: 255, b: 255 }
+console.log(hexToRgb("#000000")); // { r: 0, g: 0, b: 0 }
+console.log(rgbToHex(255, 87, 51)); // #ff5733
+console.log(rgbToHex(0, 0, 0)); // #000000
+console.log(isValidHex("#ff5733")); // true
+console.log(isValidHex("#fff")); // true (3 digit hex)
+console.log(isValidHex("notacolor")); // false
+console.log(lightenColor("#ff5733", 20)); // lighter hex
+console.log(darkenColor("#ff5733", 20)); // darker hex

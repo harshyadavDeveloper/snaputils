@@ -46,3 +46,12 @@ export { unique, groupBy, chunk } from "./array.js";
 
 // Object utilities
 export { omit, pick, deepClone } from "./object.js";
+
+// Color utilities
+export {
+  hexToRgb,
+  rgbToHex,
+  isValidHex,
+  lightenColor,
+  darkenColor,
+} from "./color.js";
