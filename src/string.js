@@ -71,3 +71,10 @@ export function reverseString(str) {
   if (!str || typeof str !== "string") return "";
   return str.split("").reverse().join("");
 }
+
+// Counts the number of words in a string
+// wordCount("hello world") → 2
+export function wordCount(str) {
+  if (!str || typeof str !== "string") return 0;
+  return str.trim().split(/\s+/).filter(Boolean).length;
+}

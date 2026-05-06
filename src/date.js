@@ -1,10 +1,6 @@
 // Formats a date to a readable string
 // formatDate("2024-01-15") → "January 15, 2024"
-export function formatDate(
-  date,
-  locale = "en-US",
-  options = { year: "numeric", month: "long", day: "numeric" },
-) {
+export function formatDate(date, locale = "en-US", options = { year: "numeric", month: "long", day: "numeric" }) {
   const d = new Date(date);
   if (isNaN(d)) return "Invalid date";
   return new Intl.DateTimeFormat(locale, options).format(d);
@@ -43,6 +39,18 @@ export function timeAgo(date, locale = "en-US") {
   if (Math.abs(diffWeeks) < 5) return rtf.format(diffWeeks, "week");
   if (Math.abs(diffMonths) < 12) return rtf.format(diffMonths, "month");
   return rtf.format(diffYears, "year");
+}
+
+// Checks if a date is today
+// isToday(new Date()) → true
+export function isToday(date) {
+  const d = new Date(date);
+  const today = new Date();
+  return (
+    d.getDate() === today.getDate() &&
+    d.getMonth() === today.getMonth() &&
+    d.getFullYear() === today.getFullYear()
+  );
 }
 
 // Returns the number of days between two dates
