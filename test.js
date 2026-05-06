@@ -36,6 +36,8 @@ import { isEmail, isURL, isPhoneNumber } from "./src/validation.js";
 
 import { unique, groupBy, chunk } from "./src/array.js";
 
+import { omit, pick, deepClone } from "./src/object.js";
+
 // --- String ---
 console.log("=== String ===");
 console.log(capitalize("hello world")); // Hello world
@@ -103,3 +105,18 @@ console.log(
   ),
 );
 // { fruit: [{...}, {...}], veggie: [{...}] }
+
+// --- Object ---
+console.log("=== Object ===");
+const user = { id: 1, name: "Harsh", password: "secret", age: 25 };
+
+console.log(omit(user, ["password"])); // { id: 1, name: "Harsh", age: 25 }
+console.log(omit(user, ["password", "age"])); // { id: 1, name: "Harsh" }
+console.log(pick(user, ["id", "name"])); // { id: 1, name: "Harsh" }
+console.log(pick(user, ["name", "age"])); // { name: "Harsh", age: 25 }
+
+const original = { a: 1, b: { c: 2 } };
+const cloned = deepClone(original);
+cloned.b.c = 99;
+console.log(original.b.c); // 2 (unchanged!)
+console.log(cloned.b.c);
