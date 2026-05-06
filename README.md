@@ -1,5 +1,9 @@
 # @dungeonmaster/snaputils
 
+![npm](https://img.shields.io/npm/v/@dungeonmaster/snaputils)
+![license](https://img.shields.io/npm/l/@dungeonmaster/snaputils)
+![types](https://img.shields.io/npm/types/@dungeonmaster/snaputils)
+
 A lightweight, zero-dependency utility library for JavaScript & React apps.
 
 ## Installation
@@ -7,6 +11,19 @@ A lightweight, zero-dependency utility library for JavaScript & React apps.
 ```bash
 npm install @dungeonmaster/snaputils
 ```
+
+## TypeScript Support
+
+This package includes built-in TypeScript type definitions.
+No need to install any `@types/` package separately!
+
+\```ts
+import { formatCurrency, isLeapYear, capitalize } from '@dungeonmaster/snaputils';
+
+formatCurrency(1999.99, 'USD'); // ✅ autocomplete works
+isLeapYear(2024); // ✅ type checked
+capitalize('hello'); // ✅ type checked
+\```
 
 ## Usage
 
@@ -26,6 +43,11 @@ import { capitalize, formatCurrency, timeAgo } from "@dungeonmaster/snaputils";
 | `isPalindrome(str)`             | Check if palindrome         | `"racecar"` → `true`              |
 | `countOccurrences(str, substr)` | Count substring occurrences | `2`                               |
 | `reverseString(str)`            | Reverse a string            | `"hello"` → `"olleh"`             |
+| `toTitleCase(str)`              | Title case a string         | `"hello world"` → `"Hello World"` |
+| `isPalindrome(str)`             | Check if palindrome         | `"racecar"` → `true`              |
+| `countOccurrences(str, substr)` | Count substring occurrences | `2`                               |
+| `reverseString(str)`            | Reverse a string            | `"hello"` → `"olleh"`             |
+| `wordCount(str)`                | Count words                 | `"hello world"` → `2`             |
 
 ## Number & Currency Utilities
 
@@ -40,6 +62,10 @@ import { capitalize, formatCurrency, timeAgo } from "@dungeonmaster/snaputils";
 | `isOdd(num)`                               | Check if odd                  | `3` → `true`                 |
 | `randomBetween(min, max)`                  | Random number in range        | `randomBetween(1, 10)` → `7` |
 | `formatFileSize(bytes)`                    | Format bytes to readable size | `1024` → `"1.00 KB"`         |
+| `isEven(num)`                              | Check if even                 | `4` → `true`                 |
+| `isOdd(num)`                               | Check if odd                  | `3` → `true`                 |
+| `randomBetween(min, max)`                  | Random number in range        | `7`                          |
+| `formatFileSize(bytes)`                    | Format bytes to readable      | `1024` → `"1.00 KB"`         |
 
 ## Date & Time Utilities
 
@@ -51,6 +77,11 @@ import { capitalize, formatCurrency, timeAgo } from "@dungeonmaster/snaputils";
 | `timeAgo(date)`         | Relative time            | `"2 hours ago"`      |
 | `daysBetween(d1, d2)`   | Days between dates       | `10`                 |
 | `addDays(date, days)`   | Add days to date         | Returns new `Date`   |
+| `isWeekend(date)`       | Check if date is weekend | `true / false`       |
+| `isLeapYear(year)`      | Check if leap year       | `2024` → `true`      |
+| `getDayName(date)`      | Get day name             | `"Monday"`           |
+| `getMonthName(date)`    | Get month name           | `"January"`          |
+| `isToday(date)`         | Check if date is today   | `true / false`       |
 | `isWeekend(date)`       | Check if date is weekend | `true / false`       |
 | `isLeapYear(year)`      | Check if leap year       | `2024` → `true`      |
 | `getDayName(date)`      | Get day name             | `"Monday"`           |
