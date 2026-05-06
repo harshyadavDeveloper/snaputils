@@ -4,6 +4,12 @@
 ![license](https://img.shields.io/npm/l/@dungeonmaster/snaputils)
 ![types](https://img.shields.io/npm/types/@dungeonmaster/snaputils)
 
+## 🚀 Live Demo
+See all utilities in action → [snaputils-demo.netlify.app](https://demo-snaputil.netlify.app/)
+
+## 📦 Demo Source
+[github.com/dungeonmaster/snaputils-demo](https://github.com/harshyadavDeveloper/snaputils)
+
 A lightweight, zero-dependency utility library for JavaScript & React apps.
 
 ## Installation

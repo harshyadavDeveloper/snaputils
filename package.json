@@ -1,6 +1,6 @@
 {
   "name": "@dungeonmaster/snaputils",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "type": "module",
   "description": "A lightweight utility library for string, number, and date formatting",
   "main": "dist/index.cjs.js",
