@@ -34,6 +34,8 @@ import {
 
 import { isEmail, isURL, isPhoneNumber } from "./src/validation.js";
 
+import { unique, groupBy, chunk } from "./src/array.js";
+
 // --- String ---
 console.log("=== String ===");
 console.log(capitalize("hello world")); // Hello world
@@ -83,3 +85,21 @@ console.log(isURL("https://google.com")); // true
 console.log(isURL("notaurl")); // false
 console.log(isPhoneNumber("+1234567890")); // true
 console.log(isPhoneNumber("123")); // false
+
+// --- Array ---
+console.log("=== Array ===");
+console.log(unique([1, 2, 2, 3, 3, 4])); // [1, 2, 3, 4]
+console.log(unique(["a", "b", "a", "c"])); // ["a", "b", "c"]
+console.log(chunk([1, 2, 3, 4, 5], 2)); // [[1,2],[3,4],[5]]
+console.log(chunk([1, 2, 3, 4, 5, 6], 3)); // [[1,2,3],[4,5,6]]
+console.log(
+  groupBy(
+    [
+      { type: "fruit", name: "apple" },
+      { type: "veggie", name: "carrot" },
+      { type: "fruit", name: "mango" },
+    ],
+    "type",
+  ),
+);
+// { fruit: [{...}, {...}], veggie: [{...}] }

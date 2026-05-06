@@ -39,8 +39,7 @@ export {
 } from "./date.js";
 
 // Validation utilities
-export {
-  isEmail,
-  isURL,
-  isPhoneNumber,
-} from "./validation.js";
+export { isEmail, isURL, isPhoneNumber } from "./validation.js";
+
+// Array utilities
+export { unique, groupBy, chunk } from "./array.js";
