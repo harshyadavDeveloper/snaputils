@@ -13,8 +13,8 @@
     }
   },
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
+    "build": "npx rollup -c",
+    "dev": "npx rollup -c -w",
     "test": "node --experimental-vm-modules node_modules/jest-cli/bin/jest.js"
   },
   "jest": {
@@ -27,5 +27,12 @@
   "files": [
     "dist",
     "types"
-  ]
+  ],
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^29.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "jest": "^30.3.0",
+    "prettier": "^3.8.3",
+    "rollup": "^4.60.2"
+  }
 }
