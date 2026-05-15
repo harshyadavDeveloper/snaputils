@@ -63,3 +63,10 @@ export {
   base64Encode,
   base64Decode,
 } from "./security.js";
+
+// Device utilities
+export {
+  isMobile,
+  copyToClipboard,
+  getScrollPosition,
+} from "./device.js";
