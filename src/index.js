@@ -55,3 +55,11 @@ export {
   lightenColor,
   darkenColor,
 } from "./color.js";
+
+// Security utilities
+export {
+  generateUID,
+  hashString,
+  base64Encode,
+  base64Decode,
+} from "./security.js";

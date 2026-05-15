@@ -141,3 +141,15 @@ console.log(isValidHex("#fff")); // true (3 digit hex)
 console.log(isValidHex("notacolor")); // false
 console.log(lightenColor("#ff5733", 20)); // lighter hex
 console.log(darkenColor("#ff5733", 20)); // darker hex
+
+import { generateUID, hashString, base64Encode, base64Decode } from "./src/security.js";
+
+// --- Security ---
+console.log("=== Security ===");
+console.log(generateUID());           // random 10 char string e.g. "x7f2k9q1m3"
+console.log(generateUID(16));         // random 16 char string
+console.log(hashString("hello"));     // "99162322"
+console.log(hashString("world"));     // different hash
+console.log(base64Encode("hello"));   // "aGVsbG8="
+console.log(base64Decode("aGVsbG8=")); // "hello"
+console.log(base64Decode(base64Encode("snaputils"))); // "snaputils"
