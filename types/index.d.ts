@@ -5,3 +5,8 @@ export * from './validation';
 export * from './array';
 export * from './object';
 export * from './color';
+export * from './security';
+export * from './device';
+export * from './math';
+export * from './url';
+export * from './performance';

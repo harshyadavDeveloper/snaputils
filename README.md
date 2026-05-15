@@ -5,9 +5,11 @@
 ![types](https://img.shields.io/npm/types/@dungeonmaster/snaputils)
 
 ## 🚀 Live Demo
+
 See all utilities in action → [snaputils-demo.netlify.app](https://demo-snaputil.netlify.app/)
 
 ## 📦 Demo Source
+
 [github.com/dungeonmaster/snaputils-demo](https://github.com/harshyadavDeveloper/snaputils)
 
 A lightweight, zero-dependency utility library for JavaScript & React apps.
@@ -126,6 +128,50 @@ import { capitalize, formatCurrency, timeAgo } from "@dungeonmaster/snaputils";
 | `isValidHex(hex)`            | Validate hex color | `"#ff5733"` → `true`                |
 | `lightenColor(hex, percent)` | Lighten a color    | `"#ff5733", 20` → lighter hex       |
 | `darkenColor(hex, percent)`  | Darken a color     | `"#ff5733", 20` → darker hex        |
+
+## 🔐 Security Utilities
+
+| Function               | Description        | Example        |
+| ---------------------- | ------------------ | -------------- |
+| `generateUID(length?)` | Generate unique ID | `"x7f2k9q1m3"` |
+| `hashString(str)`      | Hash a string      | `"99162322"`   |
+| `base64Encode(str)`    | Encode to Base64   | `"aGVsbG8="`   |
+| `base64Decode(str)`    | Decode from Base64 | `"hello"`      |
+
+## 📱 Device Utilities
+
+| Function                | Description            | Example            |
+| ----------------------- | ---------------------- | ------------------ |
+| `isMobile()`            | Detect mobile device   | `true / false`     |
+| `copyToClipboard(text)` | Copy text to clipboard | `true / false`     |
+| `getScrollPosition()`   | Get scroll position    | `{ x: 0, y: 200 }` |
+
+## 🧮 Math Utilities
+
+| Function       | Description      | Example         |
+| -------------- | ---------------- | --------------- |
+| `sum(arr)`     | Sum of array     | `[1,2,3]` → `6` |
+| `average(arr)` | Average of array | `[1,2,3]` → `2` |
+| `median(arr)`  | Median of array  | `[1,2,3]` → `2` |
+| `factorial(n)` | Factorial of n   | `5` → `120`     |
+| `min(arr)`     | Minimum value    | `[3,1,2]` → `1` |
+| `max(arr)`     | Maximum value    | `[3,1,2]` → `3` |
+
+## 🌍 URL Utilities
+
+| Function                | Description            | Example                      |
+| ----------------------- | ---------------------- | ---------------------------- |
+| `parseURL(url)`         | Parse URL into parts   | `{ host, pathname, params }` |
+| `buildQueryString(obj)` | Object to query string | `"name=harsh&age=25"`        |
+| `parseQueryString(str)` | Query string to object | `{ name: "harsh" }`          |
+
+## ⏱️ Performance Utilities
+
+| Function               | Description            | Example               |
+| ---------------------- | ---------------------- | --------------------- |
+| `debounce(fn, delay?)` | Debounce a function    | fires after delay     |
+| `throttle(fn, limit?)` | Throttle a function    | fires once per limit  |
+| `memoize(fn)`          | Cache function results | returns cached result |
 
 ## License
 

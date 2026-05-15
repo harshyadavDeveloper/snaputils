@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2026-05-15
+
+### Added
+
+- `generateUID`, `hashString`, `base64Encode`, `base64Decode` security utilities
+- `isMobile`, `copyToClipboard`, `getScrollPosition` device utilities
+- `sum`, `average`, `median`, `factorial`, `min`, `max` math utilities
+- `parseURL`, `buildQueryString`, `parseQueryString` URL utilities
+- `debounce`, `throttle`, `memoize` performance utilities
+- TypeScript type definitions for all new utilities
+- Jest tests for all new utilities
+
 ## [1.5.2] - 2026-05-09
 
 ### Fixed
