@@ -72,3 +72,6 @@ export { sum, average, median, factorial, min, max } from "./math.js";
 
 // URL utilities
 export { parseURL, buildQueryString, parseQueryString } from "./url.js";
+
+// Performance utilities
+export { debounce, throttle, memoize } from "./performance.js";

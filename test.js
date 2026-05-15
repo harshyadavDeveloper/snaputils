@@ -57,6 +57,8 @@ import {
 
 import { parseURL, buildQueryString, parseQueryString } from "./src/url.js";
 
+import { debounce, throttle, memoize } from "./src/performance.js";
+
 // --- String ---
 console.log("=== String ===");
 console.log(capitalize("hello world")); // Hello world
@@ -190,3 +192,29 @@ console.log(parseQueryString("name=harsh&age=25&city=goa"));
 
 console.log(parseQueryString("?name=harsh&age=25"));
 // { name: "harsh", age: "25" }
+
+// --- Performance ---
+console.log("=== Performance ===");
+
+// Test memoize
+const expensiveFn = memoize((n) => {
+  console.log(`computing ${n}...`);
+  return n * 2;
+});
+
+console.log(expensiveFn(5)); // computing 5... → 10
+console.log(expensiveFn(5)); // cached → 10 (no "computing" log)
+console.log(expensiveFn(10)); // computing 10... → 20
+console.log(expensiveFn(10)); // cached → 20 (no "computing" log)
+
+// Test debounce
+const debounced = debounce((msg) => console.log("debounced:", msg), 100);
+debounced("first");
+debounced("second");
+debounced("third"); // only this one fires after 100ms
+
+// Test throttle
+const throttled = throttle((msg) => console.log("throttled:", msg), 100);
+throttled("first"); // fires
+throttled("second"); // ignored
+throttled("third"); // ignored
