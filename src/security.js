@@ -3,7 +3,7 @@
 export function generateUID(length = 10) {
   const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
   return Array.from({ length }, () =>
-    chars.charAt(Math.floor(Math.random() * chars.length))
+    chars.charAt(Math.floor(Math.random() * chars.length)),
   ).join("");
 }
 

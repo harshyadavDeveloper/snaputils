@@ -65,8 +65,7 @@ export {
 } from "./security.js";
 
 // Device utilities
-export {
-  isMobile,
-  copyToClipboard,
-  getScrollPosition,
-} from "./device.js";
+export { isMobile, copyToClipboard, getScrollPosition } from "./device.js";
+
+// Math utilities
+export { sum, average, median, factorial, min, max } from "./math.js";
