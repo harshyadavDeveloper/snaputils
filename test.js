@@ -55,6 +55,8 @@ import {
   darkenColor,
 } from "./src/color.js";
 
+import { parseURL, buildQueryString, parseQueryString } from "./src/url.js";
+
 // --- String ---
 console.log("=== String ===");
 console.log(capitalize("hello world")); // Hello world
@@ -171,3 +173,20 @@ console.log(factorial(5)); // 120
 console.log(factorial(0)); // 1
 console.log(min([3, 1, 4, 1, 5, 9])); // 1
 console.log(max([3, 1, 4, 1, 5, 9])); // 9
+
+// --- URL ---
+console.log("=== URL ===");
+console.log(parseURL("https://example.com/path?foo=bar&baz=qux"));
+// { protocol: "https:", host: "example.com", pathname: "/path", ... }
+
+console.log(parseURL("not a url"));
+// null
+
+console.log(buildQueryString({ name: "harsh", age: 25, city: "goa" }));
+// "name=harsh&age=25&city=goa"
+
+console.log(parseQueryString("name=harsh&age=25&city=goa"));
+// { name: "harsh", age: "25", city: "goa" }
+
+console.log(parseQueryString("?name=harsh&age=25"));
+// { name: "harsh", age: "25" }
