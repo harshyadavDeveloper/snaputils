@@ -32,7 +32,16 @@ import {
   getMonthName,
 } from "./src/date.js";
 
-import { isEmail, isURL, isPhoneNumber } from "./src/validation.js";
+import {
+  isEmail,
+  isURL,
+  isPhoneNumber,
+  isStrongPassword,
+  isUsername,
+  isCreditCard,
+  isPostalCode,
+  isIPAddress,
+} from "./src/validation.js";
 
 import { unique, groupBy, chunk } from "./src/array.js";
 
@@ -218,3 +227,24 @@ const throttled = throttle((msg) => console.log("throttled:", msg), 100);
 throttled("first"); // fires
 throttled("second"); // ignored
 throttled("third"); // ignored
+
+// --- Form Validation ---
+console.log("=== Form Validation ===");
+console.log(isStrongPassword("Hello@123")); // true
+console.log(isStrongPassword("weakpass")); // false
+console.log(isStrongPassword("NoSpecial1")); // false
+
+console.log(isUsername("harsh_dev")); // true
+console.log(isUsername("ab")); // false (too short)
+console.log(isUsername("has space")); // false
+
+console.log(isCreditCard("4111111111111111")); // true (Visa test)
+console.log(isCreditCard("1234567890123456")); // false
+
+console.log(isPostalCode("400001", "IN")); // true
+console.log(isPostalCode("90210", "US")); // true
+console.log(isPostalCode("12345", "IN")); // false (US zip in IN)
+
+console.log(isIPAddress("192.168.1.1")); // true
+console.log(isIPAddress("256.0.0.1")); // false
+console.log(isIPAddress("not an ip")); // false
