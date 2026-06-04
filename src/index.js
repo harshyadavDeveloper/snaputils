@@ -55,7 +55,15 @@ export {
 } from "./validation.js";
 
 // Array utilities
-export { unique, groupBy, chunk } from "./array.js";
+export {
+  unique,
+  groupBy,
+  chunk,
+  flatten,
+  shuffle,
+  difference,
+  intersection,
+} from "./array.js";
 
 // Object utilities
 export { omit, pick, deepClone } from "./object.js";

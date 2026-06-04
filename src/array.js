@@ -28,3 +28,37 @@ export function chunk(arr, size) {
   }
   return chunks;
 }
+
+// Flattens a nested array to a given depth
+// flatten([1, [2, [3, [4]]]]) → [1, 2, 3, 4]
+// flatten([1, [2, [3]]], 1) → [1, 2, [3]]
+export function flatten(arr, depth = Infinity) {
+  if (!Array.isArray(arr)) return [];
+  return arr.flat(depth);
+}
+
+// Shuffles an array randomly
+// shuffle([1, 2, 3, 4, 5]) → [3, 1, 5, 2, 4]
+export function shuffle(arr) {
+  if (!Array.isArray(arr)) return [];
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+// Returns elements in first array but not in second
+// difference([1, 2, 3], [2, 3, 4]) → [1]
+export function difference(arr1, arr2) {
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) return [];
+  return arr1.filter((item) => !arr2.includes(item));
+}
+
+// Returns elements that exist in both arrays
+// intersection([1, 2, 3], [2, 3, 4]) → [2, 3]
+export function intersection(arr1, arr2) {
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) return [];
+  return arr1.filter((item) => arr2.includes(item));
+}

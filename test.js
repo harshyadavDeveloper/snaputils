@@ -72,6 +72,8 @@ import { parseURL, buildQueryString, parseQueryString } from "./src/url.js";
 
 import { debounce, throttle, memoize } from "./src/performance.js";
 
+import { flatten, shuffle, difference, intersection } from "./src/array.js";
+
 // --- String ---
 console.log("=== String ===");
 console.log(capitalize("hello world")); // Hello world
@@ -255,16 +257,31 @@ console.log(isIPAddress("not an ip")); // false
 
 // --- String Extras ---
 console.log("=== String Extras ===");
-console.log(slugify("Hello World!"));                    // hello-world
-console.log(slugify("  My Blog Post Title  "));          // my-blog-post-title
-console.log(slugify("What's up? Nothing!"));             // whats-up-nothing
+console.log(slugify("Hello World!")); // hello-world
+console.log(slugify("  My Blog Post Title  ")); // my-blog-post-title
+console.log(slugify("What's up? Nothing!")); // whats-up-nothing
 
-console.log(stripHTML("<p>Hello <b>World</b></p>"));     // Hello World
-console.log(stripHTML("<h1>Title</h1><p>Body</p>"));     // TitleBody
-console.log(stripHTML("No tags here"));                  // No tags here
+console.log(stripHTML("<p>Hello <b>World</b></p>")); // Hello World
+console.log(stripHTML("<h1>Title</h1><p>Body</p>")); // TitleBody
+console.log(stripHTML("No tags here")); // No tags here
 
 console.log(extractEmails("contact a@b.com or c@d.com")); // ["a@b.com", "c@d.com"]
-console.log(extractEmails("no emails here"));            // []
+console.log(extractEmails("no emails here")); // []
 
 console.log(extractURLs("visit https://google.com or https://github.com")); // ["https://google.com", "https://github.com"]
-console.log(extractURLs("no urls here"));                // []
+console.log(extractURLs("no urls here")); // []
+
+// --- Array Extras ---
+console.log("=== Array Extras ===");
+console.log(flatten([1, [2, [3, [4]]]])); // [1, 2, 3, 4]
+console.log(flatten([1, [2, [3, [4]]]], 1)); // [1, 2, [3, [4]]]
+console.log(flatten([1, [2, [3, [4]]]], 2)); // [1, 2, 3, [4]]
+
+console.log(shuffle([1, 2, 3, 4, 5])); // random order
+console.log(shuffle([1, 2, 3, 4, 5])); // different random order
+
+console.log(difference([1, 2, 3, 4], [2, 3])); // [1, 4]
+console.log(difference([1, 2, 3], [4, 5, 6])); // [1, 2, 3]
+
+console.log(intersection([1, 2, 3, 4], [2, 3, 5])); // [2, 3]
+console.log(intersection([1, 2, 3], [4, 5, 6])); // []
