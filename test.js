@@ -7,6 +7,10 @@ import {
   isPalindrome,
   countOccurrences,
   reverseString,
+  slugify,
+  stripHTML,
+  extractEmails,
+  extractURLs,
 } from "./src/string.js";
 
 import {
@@ -248,3 +252,19 @@ console.log(isPostalCode("12345", "IN")); // false (US zip in IN)
 console.log(isIPAddress("192.168.1.1")); // true
 console.log(isIPAddress("256.0.0.1")); // false
 console.log(isIPAddress("not an ip")); // false
+
+// --- String Extras ---
+console.log("=== String Extras ===");
+console.log(slugify("Hello World!"));                    // hello-world
+console.log(slugify("  My Blog Post Title  "));          // my-blog-post-title
+console.log(slugify("What's up? Nothing!"));             // whats-up-nothing
+
+console.log(stripHTML("<p>Hello <b>World</b></p>"));     // Hello World
+console.log(stripHTML("<h1>Title</h1><p>Body</p>"));     // TitleBody
+console.log(stripHTML("No tags here"));                  // No tags here
+
+console.log(extractEmails("contact a@b.com or c@d.com")); // ["a@b.com", "c@d.com"]
+console.log(extractEmails("no emails here"));            // []
+
+console.log(extractURLs("visit https://google.com or https://github.com")); // ["https://google.com", "https://github.com"]
+console.log(extractURLs("no urls here"));                // []

@@ -78,3 +78,36 @@ export function wordCount(str) {
   if (!str || typeof str !== "string") return 0;
   return str.trim().split(/\s+/).filter(Boolean).length;
 }
+
+// Converts a string to a URL-friendly slug
+// slugify("Hello World!") → "hello-world"
+export function slugify(str) {
+  if (!str || typeof str !== "string") return "";
+  return str
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+// Strips HTML tags from a string
+// stripHTML("<p>Hello <b>World</b></p>") → "Hello World"
+export function stripHTML(str) {
+  if (!str || typeof str !== "string") return "";
+  return str.replace(/<[^>]*>/g, "");
+}
+
+// Extracts all email addresses from a string
+// extractEmails("contact me at a@b.com or c@d.com") → ["a@b.com", "c@d.com"]
+export function extractEmails(str) {
+  if (!str || typeof str !== "string") return [];
+  return str.match(/[^\s@]+@[^\s@]+\.[^\s@]+/g) || [];
+}
+
+// Extracts all URLs from a string
+// extractURLs("visit https://google.com or http://github.com") → ["https://google.com", "http://github.com"]
+export function extractURLs(str) {
+  if (!str || typeof str !== "string") return [];
+  return str.match(/https?:\/\/[^\s]+/g) || [];
+}

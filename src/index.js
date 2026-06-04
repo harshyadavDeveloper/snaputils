@@ -9,6 +9,10 @@ export {
   isPalindrome,
   countOccurrences,
   reverseString,
+  slugify,
+  stripHTML,
+  extractEmails,
+  extractURLs,
 } from "./string.js";
 
 // Number & currency utilities
