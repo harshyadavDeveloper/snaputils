@@ -93,3 +93,6 @@ export {
   useOnClickOutside,
   useCopyToClipboard,
 } from "./hooks.js";
+
+// Storage utilities
+export { setItem, getItem, removeItem, clearAll, getKeys } from "./storage.js";
