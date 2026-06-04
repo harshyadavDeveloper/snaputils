@@ -75,3 +75,12 @@ export { parseURL, buildQueryString, parseQueryString } from "./url.js";
 
 // Performance utilities
 export { debounce, throttle, memoize } from "./performance.js";
+
+// React Hooks (requires React)
+export {
+  useDebounce,
+  useLocalStorage,
+  useMediaQuery,
+  useOnClickOutside,
+  useCopyToClipboard,
+} from "./hooks.js";

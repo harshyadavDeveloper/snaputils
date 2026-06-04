@@ -19,9 +19,18 @@
   },
   "jest": {
     "transform": {},
-    "testMatch": ["**/tests/**/*.test.js"]
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
   },
-  "keywords": ["utils", "helpers", "formatters", "date", "string", "number"],
+  "keywords": [
+    "utils",
+    "helpers",
+    "formatters",
+    "date",
+    "string",
+    "number"
+  ],
   "author": "Your Name",
   "license": "MIT",
   "files": [
@@ -34,5 +43,13 @@
     "jest": "^30.3.0",
     "prettier": "^3.8.3",
     "rollup": "^4.60.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
   }
 }
