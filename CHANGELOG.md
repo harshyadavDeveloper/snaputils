@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.0] - 2026-05-15
+
+### Added
+
+- `useDebounce`, `useLocalStorage`, `useMediaQuery`, `useOnClickOutside`, `useCopyToClipboard` React hooks
+- `isStrongPassword`, `isUsername`, `isCreditCard`, `isPostalCode`, `isIPAddress` form validation
+- `setItem`, `getItem`, `removeItem`, `clearAll`, `getKeys` storage utilities
+- `slugify`, `stripHTML`, `extractEmails`, `extractURLs` string utilities
+- `flatten`, `shuffle`, `difference`, `intersection` array utilities
+- TypeScript type definitions for all new utilities
+- Jest tests for all new utilities
+
 ## [1.6.0] - 2026-05-15
 
 ### Added

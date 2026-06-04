@@ -173,6 +173,36 @@ import { capitalize, formatCurrency, timeAgo } from "@dungeonmaster/snaputils";
 | `throttle(fn, limit?)` | Throttle a function    | fires once per limit  |
 | `memoize(fn)`          | Cache function results | returns cached result |
 
+## 🪝 React Hooks (requires React)
+
+| Hook                              | Description                   | Returns           |
+| --------------------------------- | ----------------------------- | ----------------- |
+| `useDebounce(value, delay?)`      | Debounce a value              | debounced value   |
+| `useLocalStorage(key, default)`   | Persist state to localStorage | `[value, setter]` |
+| `useMediaQuery(query)`            | Match a media query           | `boolean`         |
+| `useOnClickOutside(ref, handler)` | Detect outside clicks         | `void`            |
+| `useCopyToClipboard()`            | Copy text to clipboard        | `[copied, copy]`  |
+
+## 📝 Form Validation
+
+| Function                     | Description              | Example                   |
+| ---------------------------- | ------------------------ | ------------------------- |
+| `isStrongPassword(str)`      | Validate strong password | `"Hello@123"` → `true`    |
+| `isUsername(str)`            | Validate username        | `"harsh_dev"` → `true`    |
+| `isCreditCard(str)`          | Validate credit card     | `"4111..."` → `true`      |
+| `isPostalCode(str, locale?)` | Validate postal code     | `"400001", "IN"` → `true` |
+| `isIPAddress(str)`           | Validate IP address      | `"192.168.1.1"` → `true`  |
+
+## 💾 Storage Utilities
+
+| Function                 | Description              | Example            |
+| ------------------------ | ------------------------ | ------------------ |
+| `setItem(key, value)`    | Save to localStorage     | `true / false`     |
+| `getItem(key, default?)` | Get from localStorage    | parsed value       |
+| `removeItem(key)`        | Remove from localStorage | `true / false`     |
+| `clearAll()`             | Clear localStorage       | `true / false`     |
+| `getKeys()`              | Get all keys             | `["key1", "key2"]` |
+
 ## License
 
 MIT

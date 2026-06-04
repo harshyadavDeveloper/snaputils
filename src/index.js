@@ -104,7 +104,7 @@ export {
   useMediaQuery,
   useOnClickOutside,
   useCopyToClipboard,
-} from "./hooks.js";
+} from "./hook.js";
 
 // Storage utilities
 export { setItem, getItem, removeItem, clearAll, getKeys } from "./storage.js";

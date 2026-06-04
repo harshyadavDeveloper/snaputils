@@ -15,3 +15,11 @@ export function isPalindrome(str: string): boolean;
 export function countOccurrences(str: string, substr: string): number;
 
 export function reverseString(str: string): string;
+
+export function slugify(str: string): string;
+
+export function stripHTML(str: string): string;
+
+export function extractEmails(str: string): string[];
+
+export function extractURLs(str: string): string[];

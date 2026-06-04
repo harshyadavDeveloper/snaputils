@@ -10,3 +10,5 @@ export * from './device';
 export * from './math';
 export * from './url';
 export * from './performance';
+export * from './storage';
+export * from './hooks';
