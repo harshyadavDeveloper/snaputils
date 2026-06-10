@@ -3,6 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 
 export default {
   input: "src/index.js",
+  external: ["react"],
   output: [
     {
       file: "dist/index.cjs.js",
