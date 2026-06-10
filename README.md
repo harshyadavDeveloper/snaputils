@@ -1,6 +1,17 @@
 # @dungeonmaster/snaputils
 
 ![npm](https://img.shields.io/npm/v/@dungeonmaster/snaputils)
+## 🤝 Community
+
+Have a question, idea or found a bug? Join the discussion!
+
+| | |
+|---|---|
+| 💡 Feature Requests | [Suggest a new utility](https://github.com/harshyadavDeveloper/snaputils/discussions/categories/feature-requests) |
+| 🐛 Bug Reports | [Report an issue](https://github.com/harshyadavDeveloper/snaputils/discussions/categories/bug-reports) |
+| 🙋 Q&A | [Ask a question](https://github.com/harshyadavDeveloper/snaputils/discussions/categories/q-a) |
+| 🎉 Show and Tell | [Share your project](https://github.com/harshyadavDeveloper/snaputils/discussions/categories/show-and-tell) |
+| 💬 All Discussions | [Browse discussions](https://github.com/harshyadavDeveloper/snaputils/discussions) |
 ![license](https://img.shields.io/npm/l/@dungeonmaster/snaputils)
 ![types](https://img.shields.io/npm/types/@dungeonmaster/snaputils)
 ![downloads](https://img.shields.io/npm/dw/@dungeonmaster/snaputils)
