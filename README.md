@@ -3,6 +3,9 @@
 ![npm](https://img.shields.io/npm/v/@dungeonmaster/snaputils)
 ![license](https://img.shields.io/npm/l/@dungeonmaster/snaputils)
 ![types](https://img.shields.io/npm/types/@dungeonmaster/snaputils)
+![downloads](https://img.shields.io/npm/dw/@dungeonmaster/snaputils)
+![GitHub discussions](https://img.shields.io/github/discussions/harshyadavDeveloper/snaputils)
+
 
 ## 🚀 Live Demo
 
