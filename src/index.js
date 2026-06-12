@@ -75,6 +75,10 @@ export {
   isValidHex,
   lightenColor,
   darkenColor,
+  generateRandomColor,
+  getContrastColor,
+  hexToHsl,
+  hslToHex,
 } from "./color.js";
 
 // Security utilities

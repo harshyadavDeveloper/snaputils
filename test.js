@@ -69,6 +69,10 @@ import {
   isValidHex,
   lightenColor,
   darkenColor,
+  generateRandomColor,
+  getContrastColor,
+  hexToHsl,
+  hslToHex,
 } from "./src/color.js";
 
 import { parseURL, buildQueryString, parseQueryString } from "./src/url.js";
@@ -291,14 +295,30 @@ console.log(intersection([1, 2, 3], [4, 5, 6])); // []
 
 // --- More Security ---
 console.log("=== More Security ===");
-console.log(generateOTP());           // random 6 digit OTP e.g. "482910"
-console.log(generateOTP(4));          // random 4 digit OTP e.g. "2891"
-console.log(generateOTP(8));          // random 8 digit OTP e.g. "48291037"
+console.log(generateOTP()); // random 6 digit OTP e.g. "482910"
+console.log(generateOTP(4)); // random 4 digit OTP e.g. "2891"
+console.log(generateOTP(8)); // random 8 digit OTP e.g. "48291037"
 
 const encrypted = encryptString("hello world", "mykey");
-console.log(encrypted);               // encrypted hex string
+console.log(encrypted); // encrypted hex string
 console.log(decryptString(encrypted, "mykey")); // "hello world"
 
 const encrypted2 = encryptString("snaputils is awesome", "secret");
 console.log(decryptString(encrypted2, "secret")); // "snaputils is awesome"
 console.log(decryptString(encrypted2, "wrongkey")); // garbage output
+
+// --- More Color ---
+console.log("=== More Color ===");
+console.log(generateRandomColor());          // random hex e.g. "#a3f2c1"
+console.log(generateRandomColor());          // different random hex
+
+console.log(getContrastColor("#ffffff"));    // "#000000" (black on white)
+console.log(getContrastColor("#000000"));    // "#ffffff" (white on black)
+console.log(getContrastColor("#6366f1"));    // "#ffffff" (white on indigo)
+
+console.log(hexToHsl("#ff0000"));            // { h: 0, s: 100, l: 50 }
+console.log(hexToHsl("#6366f1"));            // { h: 239, s: 84, l: 58 }
+console.log(hexToHsl("#ffffff"));            // { h: 0, s: 0, l: 100 }
+
+console.log(hslToHex(0, 100, 50));           // "#ff0000"
+console.log(hslToHex(239, 84, 58));          // close to "#6366f1"
