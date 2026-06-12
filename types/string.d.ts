@@ -23,3 +23,9 @@ export function stripHTML(str: string): string;
 export function extractEmails(str: string): string[];
 
 export function extractURLs(str: string): string[];
+
+export function generatePassword(length?: number): string;
+
+export function initials(name: string): string;
+
+export function pluralize(word: string, count: number, plural?: string): string;

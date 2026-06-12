@@ -1,22 +1,23 @@
 # @dungeonmaster/snaputils
 
 ![npm](https://img.shields.io/npm/v/@dungeonmaster/snaputils)
+
 ## 🤝 Community
 
 Have a question, idea or found a bug? Join the discussion!
 
-| | |
-|---|---|
+|                     |                                                                                                                   |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | 💡 Feature Requests | [Suggest a new utility](https://github.com/harshyadavDeveloper/snaputils/discussions/categories/feature-requests) |
-| 🐛 Bug Reports | [Report an issue](https://github.com/harshyadavDeveloper/snaputils/discussions/categories/bug-reports) |
-| 🙋 Q&A | [Ask a question](https://github.com/harshyadavDeveloper/snaputils/discussions/categories/q-a) |
-| 🎉 Show and Tell | [Share your project](https://github.com/harshyadavDeveloper/snaputils/discussions/categories/show-and-tell) |
-| 💬 All Discussions | [Browse discussions](https://github.com/harshyadavDeveloper/snaputils/discussions) |
+| 🐛 Bug Reports      | [Report an issue](https://github.com/harshyadavDeveloper/snaputils/discussions/categories/bug-reports)            |
+| 🙋 Q&A              | [Ask a question](https://github.com/harshyadavDeveloper/snaputils/discussions/categories/q-a)                     |
+| 🎉 Show and Tell    | [Share your project](https://github.com/harshyadavDeveloper/snaputils/discussions/categories/show-and-tell)       |
+| 💬 All Discussions  | [Browse discussions](https://github.com/harshyadavDeveloper/snaputils/discussions)                                |
+
 ![license](https://img.shields.io/npm/l/@dungeonmaster/snaputils)
 ![types](https://img.shields.io/npm/types/@dungeonmaster/snaputils)
 ![downloads](https://img.shields.io/npm/dw/@dungeonmaster/snaputils)
 ![GitHub discussions](https://img.shields.io/github/discussions/harshyadavDeveloper/snaputils)
-
 
 ## 🚀 Live Demo
 
@@ -55,21 +56,24 @@ import { capitalize, formatCurrency, timeAgo } from "@dungeonmaster/snaputils";
 
 ## String Utilities
 
-| Function                        | Description                 | Example                           |
-| ------------------------------- | --------------------------- | --------------------------------- |
-| `capitalize(str)`               | Capitalize first letter     | `"hello"` → `"Hello"`             |
-| `truncate(str, max)`            | Truncate with ellipsis      | `"Hello World"` → `"Hello..."`    |
-| `toCamelCase(str)`              | Convert to camelCase        | `"hello world"` → `"helloWorld"`  |
-| `maskString(str, start, end)`   | Mask middle characters      | `"1234567890"` → `"12******90"`   |
-| `toTitleCase(str)`              | Title case a string         | `"hello world"` → `"Hello World"` |
-| `isPalindrome(str)`             | Check if palindrome         | `"racecar"` → `true`              |
-| `countOccurrences(str, substr)` | Count substring occurrences | `2`                               |
-| `reverseString(str)`            | Reverse a string            | `"hello"` → `"olleh"`             |
-| `toTitleCase(str)`              | Title case a string         | `"hello world"` → `"Hello World"` |
-| `isPalindrome(str)`             | Check if palindrome         | `"racecar"` → `true`              |
-| `countOccurrences(str, substr)` | Count substring occurrences | `2`                               |
-| `reverseString(str)`            | Reverse a string            | `"hello"` → `"olleh"`             |
-| `wordCount(str)`                | Count words                 | `"hello world"` → `2`             |
+| Function                          | Description                 | Example                           |
+| --------------------------------- | --------------------------- | --------------------------------- |
+| `capitalize(str)`                 | Capitalize first letter     | `"hello"` → `"Hello"`             |
+| `truncate(str, max)`              | Truncate with ellipsis      | `"Hello World"` → `"Hello..."`    |
+| `toCamelCase(str)`                | Convert to camelCase        | `"hello world"` → `"helloWorld"`  |
+| `maskString(str, start, end)`     | Mask middle characters      | `"1234567890"` → `"12******90"`   |
+| `toTitleCase(str)`                | Title case a string         | `"hello world"` → `"Hello World"` |
+| `isPalindrome(str)`               | Check if palindrome         | `"racecar"` → `true`              |
+| `countOccurrences(str, substr)`   | Count substring occurrences | `2`                               |
+| `reverseString(str)`              | Reverse a string            | `"hello"` → `"olleh"`             |
+| `toTitleCase(str)`                | Title case a string         | `"hello world"` → `"Hello World"` |
+| `isPalindrome(str)`               | Check if palindrome         | `"racecar"` → `true`              |
+| `countOccurrences(str, substr)`   | Count substring occurrences | `2`                               |
+| `reverseString(str)`              | Reverse a string            | `"hello"` → `"olleh"`             |
+| `wordCount(str)`                  | Count words                 | `"hello world"` → `2`             |
+| `generatePassword(length?)`       | Generate strong password    | `"aB3$kL9@mN2!"`                  |
+| `initials(name)`                  | Get initials from name      | `"Harsh Yadav"` → `"HY"`          |
+| `pluralize(word, count, plural?)` | Pluralize a word            | `"2 items"`                       |
 
 ## Number & Currency Utilities
 
@@ -135,22 +139,29 @@ import { capitalize, formatCurrency, timeAgo } from "@dungeonmaster/snaputils";
 
 ## 🎨 Color Utilities
 
-| Function                     | Description        | Example                             |
-| ---------------------------- | ------------------ | ----------------------------------- |
-| `hexToRgb(hex)`              | Hex to RGB object  | `"#ff5733"` → `{r:255, g:87, b:51}` |
-| `rgbToHex(r,g,b)`            | RGB to hex string  | `255,87,51` → `"#ff5733"`           |
-| `isValidHex(hex)`            | Validate hex color | `"#ff5733"` → `true`                |
-| `lightenColor(hex, percent)` | Lighten a color    | `"#ff5733", 20` → lighter hex       |
-| `darkenColor(hex, percent)`  | Darken a color     | `"#ff5733", 20` → darker hex        |
+| Function                     | Description                 | Example                             |
+| ---------------------------- | --------------------------- | ----------------------------------- |
+| `hexToRgb(hex)`              | Hex to RGB object           | `"#ff5733"` → `{r:255, g:87, b:51}` |
+| `rgbToHex(r,g,b)`            | RGB to hex string           | `255,87,51` → `"#ff5733"`           |
+| `isValidHex(hex)`            | Validate hex color          | `"#ff5733"` → `true`                |
+| `lightenColor(hex, percent)` | Lighten a color             | `"#ff5733", 20` → lighter hex       |
+| `darkenColor(hex, percent)`  | Darken a color              | `"#ff5733", 20` → darker hex        |
+| `generateRandomColor()`      | Random hex color            | `"#a3f2c1"`                         |
+| `getContrastColor(hex)`      | Black or white for contrast | `"#000000"`                         |
+| `hexToHsl(hex)`              | Hex to HSL                  | `{ h: 0, s: 100, l: 50 }`           |
+| `hslToHex(h, s, l)`          | HSL to hex                  | `"#ff0000"`                         |
 
 ## 🔐 Security Utilities
 
-| Function               | Description        | Example        |
-| ---------------------- | ------------------ | -------------- |
-| `generateUID(length?)` | Generate unique ID | `"x7f2k9q1m3"` |
-| `hashString(str)`      | Hash a string      | `"99162322"`   |
-| `base64Encode(str)`    | Encode to Base64   | `"aGVsbG8="`   |
-| `base64Decode(str)`    | Decode from Base64 | `"hello"`      |
+| Function                  | Description          | Example        |
+| ------------------------- | -------------------- | -------------- |
+| `generateUID(length?)`    | Generate unique ID   | `"x7f2k9q1m3"` |
+| `hashString(str)`         | Hash a string        | `"99162322"`   |
+| `base64Encode(str)`       | Encode to Base64     | `"aGVsbG8="`   |
+| `base64Decode(str)`       | Decode from Base64   | `"hello"`      |
+| `generateOTP(length?)`    | Generate numeric OTP | `"482910"`     |
+| `encryptString(str, key)` | Encrypt a string     | encrypted hex  |
+| `decryptString(str, key)` | Decrypt a string     | `"hello"`      |
 
 ## 📱 Device Utilities
 
@@ -162,14 +173,18 @@ import { capitalize, formatCurrency, timeAgo } from "@dungeonmaster/snaputils";
 
 ## 🧮 Math Utilities
 
-| Function       | Description      | Example         |
-| -------------- | ---------------- | --------------- |
-| `sum(arr)`     | Sum of array     | `[1,2,3]` → `6` |
-| `average(arr)` | Average of array | `[1,2,3]` → `2` |
-| `median(arr)`  | Median of array  | `[1,2,3]` → `2` |
-| `factorial(n)` | Factorial of n   | `5` → `120`     |
-| `min(arr)`     | Minimum value    | `[3,1,2]` → `1` |
-| `max(arr)`     | Maximum value    | `[3,1,2]` → `3` |
+| Function                   | Description          | Example              |
+| -------------------------- | -------------------- | -------------------- |
+| `sum(arr)`                 | Sum of array         | `[1,2,3]` → `6`      |
+| `average(arr)`             | Average of array     | `[1,2,3]` → `2`      |
+| `median(arr)`              | Median of array      | `[1,2,3]` → `2`      |
+| `factorial(n)`             | Factorial of n       | `5` → `120`          |
+| `min(arr)`                 | Minimum value        | `[3,1,2]` → `1`      |
+| `max(arr)`                 | Maximum value        | `[3,1,2]` → `3`      |
+| `percentage(value, total)` | Calculate percentage | `25, 200` → `12.5`   |
+| `lerp(start, end, t)`      | Linear interpolation | `0, 100, 0.5` → `50` |
+| `degreesToRadians(deg)`    | Degrees to radians   | `180` → `3.14`       |
+| `radiansToDegrees(rad)`    | Radians to degrees   | `3.14` → `180`       |
 
 ## 🌍 URL Utilities
 

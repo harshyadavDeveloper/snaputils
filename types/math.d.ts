@@ -4,3 +4,7 @@ export function median(arr: number[]): number;
 export function factorial(n: number): number | null;
 export function min(arr: number[]): number | null;
 export function max(arr: number[]): number | null;
+export function percentage(value: number, total: number): number;
+export function lerp(start: number, end: number, t: number): number;
+export function degreesToRadians(deg: number): number;
+export function radiansToDegrees(rad: number): number;
