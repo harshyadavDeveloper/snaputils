@@ -83,6 +83,9 @@ export {
   hashString,
   base64Encode,
   base64Decode,
+  generateOTP,
+  encryptString,
+  decryptString,
 } from "./security.js";
 
 // Device utilities

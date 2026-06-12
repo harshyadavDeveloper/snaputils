@@ -37,3 +37,39 @@ export function base64Decode(str) {
     return "";
   }
 }
+
+// Generates a numeric OTP of given length
+// generateOTP(6) → "482910"
+export function generateOTP(length = 6) {
+  return Array.from({ length }, () => Math.floor(Math.random() * 10)).join("");
+}
+
+// Simple string encryption using a key
+// encryptString("hello", "key") → encrypted string
+export function encryptString(str, key) {
+  if (!str || !key) return "";
+  return str
+    .split("")
+    .map((char, i) =>
+      String.fromCharCode(char.charCodeAt(0) ^ key.charCodeAt(i % key.length))
+    )
+    .map((char) => char.charCodeAt(0).toString(16).padStart(2, "0"))
+    .join("");
+}
+
+// Decrypts a string encrypted with encryptString
+// decryptString(encrypted, "key") → "hello"
+export function decryptString(str, key) {
+  if (!str || !key) return "";
+  try {
+    return str
+      .match(/.{1,2}/g)
+      .map((hex) => String.fromCharCode(parseInt(hex, 16)))
+      .map((char, i) =>
+        String.fromCharCode(char.charCodeAt(0) ^ key.charCodeAt(i % key.length))
+      )
+      .join("");
+  } catch {
+    return "";
+  }
+}

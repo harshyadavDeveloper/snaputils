@@ -56,6 +56,9 @@ import {
   hashString,
   base64Encode,
   base64Decode,
+  generateOTP,
+  encryptString,
+  decryptString,
 } from "./src/security.js";
 
 import { sum, average, median, factorial, min, max } from "./src/math.js";
@@ -285,3 +288,17 @@ console.log(difference([1, 2, 3], [4, 5, 6])); // [1, 2, 3]
 
 console.log(intersection([1, 2, 3, 4], [2, 3, 5])); // [2, 3]
 console.log(intersection([1, 2, 3], [4, 5, 6])); // []
+
+// --- More Security ---
+console.log("=== More Security ===");
+console.log(generateOTP());           // random 6 digit OTP e.g. "482910"
+console.log(generateOTP(4));          // random 4 digit OTP e.g. "2891"
+console.log(generateOTP(8));          // random 8 digit OTP e.g. "48291037"
+
+const encrypted = encryptString("hello world", "mykey");
+console.log(encrypted);               // encrypted hex string
+console.log(decryptString(encrypted, "mykey")); // "hello world"
+
+const encrypted2 = encryptString("snaputils is awesome", "secret");
+console.log(decryptString(encrypted2, "secret")); // "snaputils is awesome"
+console.log(decryptString(encrypted2, "wrongkey")); // garbage output
