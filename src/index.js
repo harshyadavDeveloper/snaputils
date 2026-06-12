@@ -96,7 +96,18 @@ export {
 export { isMobile, copyToClipboard, getScrollPosition } from "./device.js";
 
 // Math utilities
-export { sum, average, median, factorial, min, max } from "./math.js";
+export {
+  sum,
+  average,
+  median,
+  factorial,
+  min,
+  max,
+  percentage,
+  lerp,
+  degreesToRadians,
+  radiansToDegrees,
+} from "./math.js";
 
 // URL utilities
 export { parseURL, buildQueryString, parseQueryString } from "./url.js";

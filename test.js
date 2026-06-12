@@ -61,7 +61,18 @@ import {
   decryptString,
 } from "./src/security.js";
 
-import { sum, average, median, factorial, min, max } from "./src/math.js";
+import {
+  sum,
+  average,
+  median,
+  factorial,
+  min,
+  max,
+  percentage,
+  lerp,
+  degreesToRadians,
+  radiansToDegrees,
+} from "./src/math.js";
 
 import {
   hexToRgb,
@@ -309,16 +320,34 @@ console.log(decryptString(encrypted2, "wrongkey")); // garbage output
 
 // --- More Color ---
 console.log("=== More Color ===");
-console.log(generateRandomColor());          // random hex e.g. "#a3f2c1"
-console.log(generateRandomColor());          // different random hex
+console.log(generateRandomColor()); // random hex e.g. "#a3f2c1"
+console.log(generateRandomColor()); // different random hex
 
-console.log(getContrastColor("#ffffff"));    // "#000000" (black on white)
-console.log(getContrastColor("#000000"));    // "#ffffff" (white on black)
-console.log(getContrastColor("#6366f1"));    // "#ffffff" (white on indigo)
+console.log(getContrastColor("#ffffff")); // "#000000" (black on white)
+console.log(getContrastColor("#000000")); // "#ffffff" (white on black)
+console.log(getContrastColor("#6366f1")); // "#ffffff" (white on indigo)
 
-console.log(hexToHsl("#ff0000"));            // { h: 0, s: 100, l: 50 }
-console.log(hexToHsl("#6366f1"));            // { h: 239, s: 84, l: 58 }
-console.log(hexToHsl("#ffffff"));            // { h: 0, s: 0, l: 100 }
+console.log(hexToHsl("#ff0000")); // { h: 0, s: 100, l: 50 }
+console.log(hexToHsl("#6366f1")); // { h: 239, s: 84, l: 58 }
+console.log(hexToHsl("#ffffff")); // { h: 0, s: 0, l: 100 }
 
-console.log(hslToHex(0, 100, 50));           // "#ff0000"
-console.log(hslToHex(239, 84, 58));          // close to "#6366f1"
+console.log(hslToHex(0, 100, 50)); // "#ff0000"
+console.log(hslToHex(239, 84, 58)); // close to "#6366f1"
+
+// --- More Math ---
+console.log("=== More Math ===");
+console.log(percentage(25, 200)); // 12.5
+console.log(percentage(1, 3)); // 33.33
+console.log(percentage(50, 100)); // 50
+
+console.log(lerp(0, 100, 0.5)); // 50
+console.log(lerp(0, 100, 0.25)); // 25
+console.log(lerp(10, 20, 0.5)); // 15
+
+console.log(degreesToRadians(180)); // 3.141592653589793
+console.log(degreesToRadians(90)); // 1.5707963267948966
+console.log(degreesToRadians(360)); // 6.283185307179586
+
+console.log(radiansToDegrees(Math.PI)); // 180
+console.log(radiansToDegrees(Math.PI / 2)); // 90
+console.log(radiansToDegrees(Math.PI * 2)); // 360

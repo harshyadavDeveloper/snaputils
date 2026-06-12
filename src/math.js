@@ -1,3 +1,5 @@
+import { roundTo } from "./number.js";
+
 // Returns the sum of an array of numbers
 // sum([1, 2, 3, 4, 5]) → 15
 export function sum(arr) {
@@ -43,4 +45,30 @@ export function min(arr) {
 export function max(arr) {
   if (!Array.isArray(arr) || arr.length === 0) return null;
   return Math.max(...arr);
+}
+
+// Returns what percentage value is of total
+// percentage(25, 200) → 12.5
+export function percentage(value, total) {
+  if (!total || isNaN(value) || isNaN(total)) return 0;
+  return roundTo((value / total) * 100, 2);
+}
+
+// Linear interpolation between two values
+// lerp(0, 100, 0.5) → 50
+// lerp(0, 100, 0.25) → 25
+export function lerp(start, end, t) {
+  return start + (end - start) * t;
+}
+
+// Converts degrees to radians
+// degreesToRadians(180) → 3.14159...
+export function degreesToRadians(deg) {
+  return deg * (Math.PI / 180);
+}
+
+// Converts radians to degrees
+// radiansToDegrees(Math.PI) → 180
+export function radiansToDegrees(rad) {
+  return rad * (180 / Math.PI);
 }
