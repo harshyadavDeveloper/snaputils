@@ -13,6 +13,9 @@ export {
   stripHTML,
   extractEmails,
   extractURLs,
+  generatePassword,
+  initials,
+  pluralize,
 } from "./string.js";
 
 // Number & currency utilities

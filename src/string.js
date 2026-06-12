@@ -111,3 +111,48 @@ export function extractURLs(str) {
   if (!str || typeof str !== "string") return [];
   return str.match(/https?:\/\/[^\s]+/g) || [];
 }
+
+// Generates a random strong password
+// generatePassword(12) → "aB3$kL9@mN2!"
+export function generatePassword(length = 12) {
+  const lowercase = "abcdefghijklmnopqrstuvwxyz";
+  const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const numbers = "0123456789";
+  const special = "@$!%*?&";
+  const all = lowercase + uppercase + numbers + special;
+  const required = [
+    lowercase[Math.floor(Math.random() * lowercase.length)],
+    uppercase[Math.floor(Math.random() * uppercase.length)],
+    numbers[Math.floor(Math.random() * numbers.length)],
+    special[Math.floor(Math.random() * special.length)],
+  ];
+  const rest = Array.from(
+    { length: length - 4 },
+    () => all[Math.floor(Math.random() * all.length)]
+  );
+  return [...required, ...rest]
+    .sort(() => Math.random() - 0.5)
+    .join("");
+}
+
+// Returns initials from a full name
+// initials("Harsh Yadav") → "HY"
+// initials("John") → "J"
+export function initials(name) {
+  if (!name || typeof name !== "string") return "";
+  return name
+    .trim()
+    .split(/\s+/)
+    .map((word) => word[0].toUpperCase())
+    .join("");
+}
+
+// Pluralizes a word based on count
+// pluralize("item", 1) → "1 item"
+// pluralize("item", 2) → "2 items"
+// pluralize("person", 2, "people") → "2 people"
+export function pluralize(word, count, plural) {
+  if (!word || typeof word !== "string") return "";
+  const pluralForm = plural || `${word}s`;
+  return `${count} ${count === 1 ? word : pluralForm}`;
+}

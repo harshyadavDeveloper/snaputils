@@ -11,6 +11,9 @@ import {
   stripHTML,
   extractEmails,
   extractURLs,
+  generatePassword,
+  initials,
+  pluralize,
 } from "./src/string.js";
 
 import {
@@ -351,3 +354,19 @@ console.log(degreesToRadians(360)); // 6.283185307179586
 console.log(radiansToDegrees(Math.PI)); // 180
 console.log(radiansToDegrees(Math.PI / 2)); // 90
 console.log(radiansToDegrees(Math.PI * 2)); // 360
+
+// --- More String ---
+console.log("=== More String ===");
+console.log(generatePassword()); // random 12 char strong password
+console.log(generatePassword(16)); // random 16 char strong password
+console.log(generatePassword(8)); // random 8 char strong password
+
+console.log(initials("Harsh Yadav")); // "HY"
+console.log(initials("John Doe Smith")); // "JDS"
+console.log(initials("John")); // "J"
+
+console.log(pluralize("item", 1)); // "1 item"
+console.log(pluralize("item", 2)); // "2 items"
+console.log(pluralize("item", 0)); // "0 items"
+console.log(pluralize("person", 2, "people")); // "2 people"
+console.log(pluralize("child", 3, "children")); // "3 children"
