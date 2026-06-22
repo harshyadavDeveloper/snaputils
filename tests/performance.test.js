@@ -7,41 +7,43 @@ describe("memoize", () => {
   });
   test("caches result", () => {
     let count = 0;
-    const fn = memoize((n) => {
-      count++;
-      return n * 2;
-    });
+    const fn = memoize((n) => { count++; return n * 2; });
     fn(5);
     fn(5);
     expect(count).toBe(1);
+  });
+  test("respects maxSize", () => {
+    let count = 0;
+    const fn = memoize((n) => { count++; return n * 2; }, { maxSize: 2 });
+    fn(1); fn(2); fn(3); // evicts 1
+    fn(1); // recomputes
+    expect(count).toBe(4);
   });
 });
 
 describe("debounce", () => {
   test("executes after delay", (done) => {
     let count = 0;
-    const fn = debounce(() => {
-      count++;
-    }, 50);
-    fn();
-    fn();
-    fn();
+    const fn = debounce(() => { count++; }, 50);
+    fn(); fn(); fn();
     setTimeout(() => {
       expect(count).toBe(1);
       done();
     }, 100);
+  });
+  test("immediate option fires right away", () => {
+    let count = 0;
+    const fn = debounce(() => { count++; }, 100, { immediate: true });
+    fn();
+    expect(count).toBe(1);
   });
 });
 
 describe("throttle", () => {
   test("executes only once within limit", () => {
     let count = 0;
-    const fn = throttle(() => {
-      count++;
-    }, 100);
-    fn();
-    fn();
-    fn();
+    const fn = throttle(() => { count++; }, 100);
+    fn(); fn(); fn();
     expect(count).toBe(1);
   });
 });

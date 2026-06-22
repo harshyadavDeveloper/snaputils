@@ -1,9 +1,28 @@
-// Formats a date to a readable string
+// Formats a date to a readable string with preset options
 // formatDate("2024-01-15") → "January 15, 2024"
-export function formatDate(date, locale = "en-US", options = { year: "numeric", month: "long", day: "numeric" }) {
+// formatDate("2024-01-15", "en-US", "short") → "Jan 15"
+// formatDate("2024-01-15", "en-US", "long") → "January 15, 2024"
+// formatDate("2024-01-15", "en-US", "full") → "Monday, January 15, 2024"
+// formatDate("2024-01-15", "en-US", "numeric") → "01/15/2024"
+export function formatDate(
+  date,
+  locale = "en-US",
+  options = { year: "numeric", month: "long", day: "numeric" },
+) {
   const d = new Date(date);
   if (isNaN(d)) return "Invalid date";
-  return new Intl.DateTimeFormat(locale, options).format(d);
+
+  const presets = {
+    short: { month: "short", day: "numeric" },
+    long: { year: "numeric", month: "long", day: "numeric" },
+    full: { weekday: "long", year: "numeric", month: "long", day: "numeric" },
+    numeric: { year: "numeric", month: "2-digit", day: "2-digit" },
+  };
+
+  const formatOptions =
+    typeof options === "string" ? presets[options] || presets.long : options;
+
+  return new Intl.DateTimeFormat(locale, formatOptions).format(d);
 }
 
 // Formats a date to MM/DD/YYYY

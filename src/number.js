@@ -1,12 +1,28 @@
-// Formats a number as currency
+// Formats a number as currency with more options
 // formatCurrency(1999.99, "USD") → "$1,999.99"
-// formatCurrency(1999.99, "INR", "en-IN") → "₹1,999.99"
-export function formatCurrency(amount, currency = "USD", locale = "en-US") {
+// formatCurrency(1999.99, "USD", "en-US", { compact: true }) → "$2K"
+// formatCurrency(1999.99, "USD", "en-US", { decimals: 0 }) → "$2,000"
+// formatCurrency(1999.99, "USD", "en-US", { decimals: 3 }) → "$1,999.990"
+export function formatCurrency(
+  amount,
+  currency = "USD",
+  locale = "en-US",
+  options = {},
+) {
   if (isNaN(amount)) return "";
-  return new Intl.NumberFormat(locale, {
+  const { compact = false, decimals } = options;
+
+  const formatOptions = {
     style: "currency",
     currency,
-  }).format(amount);
+    ...(compact && { notation: "compact", compactDisplay: "short" }),
+    ...(decimals !== undefined && {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    }),
+  };
+
+  return new Intl.NumberFormat(locale, formatOptions).format(amount);
 }
 
 // Formats a number with thousand separators
@@ -56,10 +72,29 @@ export function isOdd(num) {
   return num % 2 !== 0;
 }
 
-// Returns a random number between min and max (inclusive)
+// Returns a random number between min and max
 // randomBetween(1, 10) → 7
-export function randomBetween(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+// randomBetween(1, 10, { float: true }) → 7.234
+// randomBetween(1, 10, { float: true, decimals: 2 }) → 7.23
+// randomBetween(1, 10, { exclude: [5, 6, 7] }) → never returns 5, 6 or 7
+export function randomBetween(min, max, options = {}) {
+  const { float = false, decimals = 2, exclude = [] } = options;
+
+  let result;
+  let attempts = 0;
+  const maxAttempts = 100;
+
+  do {
+    if (float) {
+      result = Math.random() * (max - min) + min;
+      result = parseFloat(result.toFixed(decimals));
+    } else {
+      result = Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    attempts++;
+  } while (exclude.includes(result) && attempts < maxAttempts);
+
+  return result;
 }
 
 // Formats bytes into human readable file size

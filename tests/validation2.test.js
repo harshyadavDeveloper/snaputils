@@ -8,11 +8,13 @@ import {
 
 describe("isStrongPassword", () => {
   test("valid strong password", () =>
-    expect(isStrongPassword("Hello@123")).toBe(true));
+    expect(isStrongPassword("Hello@123", { returnBoolean: true })).toBe(true));
   test("no special char", () =>
-    expect(isStrongPassword("Hello1234")).toBe(false));
-  test("too short", () => expect(isStrongPassword("Hi@1")).toBe(false));
-  test("no uppercase", () => expect(isStrongPassword("hello@123")).toBe(false));
+    expect(isStrongPassword("Hello1234", { returnBoolean: true })).toBe(false));
+  test("too short", () =>
+    expect(isStrongPassword("Hi@1", { returnBoolean: true })).toBe(false));
+  test("no uppercase", () =>
+    expect(isStrongPassword("hello@123", { returnBoolean: true })).toBe(false));
 });
 
 describe("isUsername", () => {

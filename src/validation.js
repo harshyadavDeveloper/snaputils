@@ -29,13 +29,38 @@ export function isPhoneNumber(str) {
   return regex.test(str);
 }
 
-// Validates a strong password
-// min 8 chars, uppercase, lowercase, number, special char
-// isStrongPassword("Hello@123") → true
-export function isStrongPassword(str) {
-  if (!str || typeof str !== "string") return false;
-  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-  return regex.test(str);
+// Validates a strong password with detailed feedback
+// isStrongPassword("Hello@123") → { valid: true, errors: [] }
+// isStrongPassword("weak") → { valid: false, errors: ["Too short...", "Missing uppercase..."] }
+// isStrongPassword("weak", { returnBoolean: true }) → false
+export function isStrongPassword(str, options = {}) {
+  const { returnBoolean = false, minLength = 8 } = options;
+
+  const errors = [];
+
+  if (!str || typeof str !== "string") {
+    if (returnBoolean) return false;
+    return { valid: false, errors: ["Password is required"] };
+  }
+
+  if (str.length < minLength) {
+    errors.push(`Too short — minimum ${minLength} characters required`);
+  }
+  if (!/[a-z]/.test(str)) {
+    errors.push("Missing lowercase letter");
+  }
+  if (!/[A-Z]/.test(str)) {
+    errors.push("Missing uppercase letter");
+  }
+  if (!/\d/.test(str)) {
+    errors.push("Missing number");
+  }
+  if (!/[@$!%*?&]/.test(str)) {
+    errors.push("Missing special character (@$!%*?&)");
+  }
+
+  if (returnBoolean) return errors.length === 0;
+  return { valid: errors.length === 0, errors };
 }
 
 // Validates a username (alphanumeric + underscore, 3-20 chars)

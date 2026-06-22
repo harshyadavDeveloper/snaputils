@@ -5,27 +5,48 @@ export function unique(arr) {
   return [...new Set(arr)];
 }
 
-// Groups an array of objects by a key
-// groupBy([{type: "a", val: 1}, {type: "b", val: 2}, {type: "a", val: 3}], "type")
-// → { a: [{type: "a", val: 1}, {type: "a", val: 3}], b: [{type: "b", val: 2}] }
-export function groupBy(arr, key) {
+// Groups an array of objects by a key or function
+// groupBy([{type: "a"}, {type: "b"}], "type") → { a: [...], b: [...] }
+// groupBy([1, 2, 3, 4, 5], n => n % 2 === 0 ? "even" : "odd") → { even: [...], odd: [...] }
+// groupBy([{age: 15}, {age: 25}], item => item.age >= 18 ? "adult" : "minor")
+export function groupBy(arr, keyOrFn) {
   if (!Array.isArray(arr)) return {};
   return arr.reduce((result, item) => {
-    const group = item[key];
+    const group = typeof keyOrFn === "function" ? keyOrFn(item) : item[keyOrFn];
     if (!result[group]) result[group] = [];
     result[group].push(item);
     return result;
   }, {});
 }
 
-// Splits an array into chunks of a given size
-// chunk([1, 2, 3, 4, 5], 2) → [[1, 2], [3, 4], [5]]
-export function chunk(arr, size) {
+// Splits an array into chunks with more options
+// chunk([1,2,3,4,5], 2) → [[1,2],[3,4],[5]]
+// chunk([1,2,3,4,5], 2, { fill: 0 }) → [[1,2],[3,4],[5,0]]
+// chunk([1,2,3,4,5,6], 2, { balanced: true }) → [[1,2],[3,4],[5,6]]
+export function chunk(arr, size, options = {}) {
   if (!Array.isArray(arr) || size < 1) return [];
+  const { fill, balanced = false } = options;
+
+  if (balanced) {
+    const chunkCount = Math.ceil(arr.length / size);
+    return Array.from({ length: chunkCount }, (_, i) =>
+      arr.slice(i * size, (i + 1) * size),
+    );
+  }
+
   const chunks = [];
   for (let i = 0; i < arr.length; i += size) {
     chunks.push(arr.slice(i, i + size));
   }
+
+  // fill last chunk if needed
+  if (fill !== undefined && chunks.length > 0) {
+    const lastChunk = chunks[chunks.length - 1];
+    while (lastChunk.length < size) {
+      lastChunk.push(fill);
+    }
+  }
+
   return chunks;
 }
 

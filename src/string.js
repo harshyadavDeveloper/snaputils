@@ -5,12 +5,30 @@ export function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
-// Truncates a string and adds "..." if too long
+// Truncates a string to a given length and adds ellipsis
 // truncate("Hello World", 8) → "Hello..."
-export function truncate(str, maxLength = 50, suffix = "...") {
+// truncate("Hello World", 8, { position: "middle" }) → "Hel...ld"
+// truncate("Hello World", 8, { position: "start" }) → "...World"
+export function truncate(str, maxLength = 50, options = {}) {
   if (!str || typeof str !== "string") return "";
   if (str.length <= maxLength) return str;
-  return str.slice(0, maxLength - suffix.length) + suffix;
+
+  const { position = "end", suffix = "..." } = options;
+  const charsToShow = maxLength - suffix.length;
+
+  if (position === "start") {
+    return suffix + str.slice(str.length - charsToShow);
+  }
+
+  if (position === "middle") {
+    const frontChars = Math.ceil(charsToShow / 2);
+    const backChars = Math.floor(charsToShow / 2);
+    return (
+      str.slice(0, frontChars) + suffix + str.slice(str.length - backChars)
+    );
+  }
+
+  return str.slice(0, charsToShow) + suffix;
 }
 
 // Converts string to camelCase
@@ -22,15 +40,32 @@ export function toCamelCase(str) {
     .replace(/[^a-zA-Z0-9]+(.)/g, (_, char) => char.toUpperCase());
 }
 
-// Masks middle characters of a string
+// Masks part of a string with more options
 // maskString("1234567890", 2, 2) → "12******90"
+// maskString("1234567890", 2, 2, { maskChar: "#" }) → "12######90"
+// maskString("test@email.com", 2, 4, { maskEmail: true }) → "te**@email.com"
+// maskString("1234567890", 2, 2, { reveal: "end" }) → "********90"
+// maskString("1234567890", 2, 2, { reveal: "start" }) → "12********"
 export function maskString(
   str,
   visibleStart = 2,
   visibleEnd = 2,
-  maskChar = "*",
+  options = {},
 ) {
   if (!str || typeof str !== "string") return "";
+
+  const { maskChar = "*", reveal = "both" } = options;
+
+  if (reveal === "start") {
+    const masked = maskChar.repeat(str.length - visibleStart);
+    return str.slice(0, visibleStart) + masked;
+  }
+
+  if (reveal === "end") {
+    const masked = maskChar.repeat(str.length - visibleEnd);
+    return masked + str.slice(str.length - visibleEnd);
+  }
+
   if (str.length <= visibleStart + visibleEnd) return str;
   const masked = maskChar.repeat(str.length - visibleStart - visibleEnd);
   return (
@@ -128,11 +163,9 @@ export function generatePassword(length = 12) {
   ];
   const rest = Array.from(
     { length: length - 4 },
-    () => all[Math.floor(Math.random() * all.length)]
+    () => all[Math.floor(Math.random() * all.length)],
   );
-  return [...required, ...rest]
-    .sort(() => Math.random() - 0.5)
-    .join("");
+  return [...required, ...rest].sort(() => Math.random() - 0.5).join("");
 }
 
 // Returns initials from a full name

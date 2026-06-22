@@ -1,11 +1,21 @@
 // Returns a debounced version of a function
-// const debouncedFn = debounce(() => console.log("hello"), 500)
-// calling debouncedFn() multiple times will only execute once after 500ms
-export function debounce(fn, delay = 300) {
+// debounce(fn, 300) → fires after 300ms of inactivity
+// debounce(fn, 300, { immediate: true }) → fires immediately then waits
+export function debounce(fn, delay = 300, options = {}) {
+  const { immediate = false } = options;
   let timer;
+
   return function (...args) {
+    const callNow = immediate && !timer;
+
     clearTimeout(timer);
-    timer = setTimeout(() => fn.apply(this, args), delay);
+
+    timer = setTimeout(() => {
+      timer = null;
+      if (!immediate) fn.apply(this, args);
+    }, delay);
+
+    if (callNow) fn.apply(this, args);
   };
 }
 
@@ -23,15 +33,24 @@ export function throttle(fn, limit = 300) {
   };
 }
 
-// Returns a memoized version of a function
+// Returns a memoized version of a function with optional cache size limit
 // const memoizedFn = memoize((n) => n * 2)
-// memoizedFn(5) → 10 (computed)
-// memoizedFn(5) → 10 (cached)
-export function memoize(fn) {
+// const memoizedFn = memoize((n) => n * 2, { maxSize: 100 })
+export function memoize(fn, options = {}) {
+  const { maxSize = Infinity } = options;
   const cache = new Map();
+
   return function (...args) {
     const key = JSON.stringify(args);
+
     if (cache.has(key)) return cache.get(key);
+
+    // if cache is full remove the oldest entry
+    if (cache.size >= maxSize) {
+      const firstKey = cache.keys().next().value;
+      cache.delete(firstKey);
+    }
+
     const result = fn.apply(this, args);
     cache.set(key, result);
     return result;
